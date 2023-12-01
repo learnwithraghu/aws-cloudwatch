@@ -26,6 +26,27 @@ This README provides instructions for setting up and managing the CloudWatch Age
 1. Create a configuration file named `cloudwatch-agent-config.json`.
 2. Use the provided configuration or customize as needed.
 
+### Sample
+
+```json
+{
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+          {
+            "file_path": "/var/log/secure", #This needs to be changed to the path of the log file you want to monitor
+            "log_group_name": "login-monitoring",
+            "log_stream_name": "{instance_id}"
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+
 ### Start the CloudWatch Agent
 
 1. Start the agent using the following command:
